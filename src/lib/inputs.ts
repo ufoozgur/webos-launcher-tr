@@ -23,6 +23,8 @@ interface EimDevice {
 	port: number;
 	connected?: boolean;
 	icon?: string;
+	spdProductDescription?: string;
+	spdVendorName?: string;
 }
 
 interface EimResponse extends LunaResponse {
@@ -55,7 +57,8 @@ function listExternalInputs (): Promise<InputSource[]> {
 			.map((d) => ({
 				id: d.id,
 				appId: d.appId,
-				label: d.label,
+				label: /denon/i.test(d.spdVendorName || d.label) && /AVR/i.test(d.spdProductDescription || '')
+					? 'Denon ' + d.spdProductDescription : d.label,
 				port: d.port,
 				connected: d.connected !== false,
 				icon: d.icon || FALLBACK_ICON

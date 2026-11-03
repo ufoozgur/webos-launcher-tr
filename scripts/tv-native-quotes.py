@@ -7,7 +7,6 @@ import pathlib
 import signal
 import subprocess
 import sys
-import textwrap
 import time
 
 STATE = pathlib.Path('/var/lib/webos-launcher-tr/flutter-text')
@@ -42,8 +41,8 @@ def prepare(advance=False):
     if advance:
         index = (index + 1) % len(quotes)
     quote = quotes[index]
-    text = '\n'.join(textwrap.wrap('“' + quote['text'] + '”', width=46, break_long_words=False))
-    text += '\n— ' + quote['character'] + ' (' + quote['actor'] + ')\n' + quote['film'] + ' (' + str(quote['year']) + ')'
+    # Stock Flutter flattens LF; U+2028 survives. Its guide only shows two lines.
+    text = '“' + quote['text'] + '” - ' + quote['character'] + ' (' + quote['actor'] + ')\u2028' + quote['film'] + ' (' + str(quote['year']) + ')'
     data = json.loads((STATE / 'tr.original.json').read_text())
     for key in KEYS:
         data[key] = text

@@ -1,4 +1,5 @@
 import {CheckMark, Glyph, type GlyphName} from './Glyph';
+import {useEffect, useState} from 'preact/hooks';
 
 /** Everything a tile needs to draw itself; rows and grids build these from app/input data. */
 export interface TileModel {
@@ -30,12 +31,30 @@ interface Props {
 }
 
 export function Tile ({model, focused, lifted, checked, dimmed, onHover, onActivate}: Props) {
+	const [animationReady, setAnimationReady] = useState(false);
+	const [animationFailed, setAnimationFailed] = useState(false);
+	const [visible, setVisible] = useState(() => !document.hidden);
+	useEffect(() => {
+		if (!model.animatedImageUrl) return;
+		const updateVisibility = () => setVisible(!document.hidden);
+		document.addEventListener('visibilitychange', updateVisibility);
+		return () => document.removeEventListener('visibilitychange', updateVisibility);
+	}, [model.animatedImageUrl]);
+	useEffect(() => {
+		setAnimationReady(false);
+		setAnimationFailed(false);
+		if (!focused || !visible || !model.animatedImageUrl) return;
+		const timer = window.setTimeout(() => setAnimationReady(true), 180);
+		return () => window.clearTimeout(timer);
+	}, [focused, visible, model.animatedImageUrl]);
+	const playing = focused && visible && animationReady && !animationFailed && !!model.animatedImageUrl;
+	const imageUrl = playing ? model.animatedImageUrl : model.imageUrl;
 	const classes = ['tile', model.key === 'lg-home' && 'tile--panic', focused && 'tile--focused', lifted && 'tile--lifted', dimmed && 'tile--dimmed'].filter(Boolean).join(' ');
 	return (
 		<div class={classes} onMouseEnter={onHover} onClick={onActivate}>
 			<div class="tile__box" style={model.color && !model.imageUrl ? {background: model.color} : undefined}>
-				{model.imageUrl
-					? <img class="tile__image" src={focused && model.animatedImageUrl ? model.animatedImageUrl : model.imageUrl} alt="" />
+				{imageUrl
+					? <img class={'tile__image' + (playing ? ' tile__image--meme' : '')} src={imageUrl} alt="" onError={() => { if (playing) setAnimationFailed(true); }} />
 					: model.glyphImageUrl
 						? <img class="tile__image tile__image--glyph" src={model.glyphImageUrl} alt="" onError={(event) => { if (!event.currentTarget.src.endsWith('/hdmigeneric.png')) event.currentTarget.src = 'icons/inputs/hdmigeneric.png'; }} />
 						: model.glyph
@@ -48,3 +67,4 @@ export function Tile ({model, focused, lifted, checked, dimmed, onHover, onActiv
 		</div>
 	);
 }
+

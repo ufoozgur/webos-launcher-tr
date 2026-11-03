@@ -5,7 +5,9 @@ LG webOS için sade, Türkçe ana ekran. [partridgeworks/webos-launcher](https:/
 - Türkçe menüler, gün/ay adları ve 24 saat biçiminde saat.
 - Uygulamalar ve HDMI girişleri; kumandayla sıralama ve seçim.
 - Kesilmeyen logolar, sayfalı gezinme.
-- **Panic Button** LG ana ekranını açar. Üzerine gelindiğinde esprili GIF oynar; başka uygulama açıkken durur.
+- Her ana uygulama ve giriş için konusuyla ilgili meme GIF. Yalnızca seçili tuşta 180 ms sonra oynar; diğer tuşlar orijinal logolarını gösterir. GIF yüklenemezse normal görsele döner. Dosyalar yereldir; kullanım sırasında internetten GIF indirilmez.
+- **Panic Button** LG ana ekranını açar; mevcut meme GIF korunmuştur.
+- Denon AVR model bilgisi, TV yanlışlıkla Sound Bar dese de girişin gerçek cihaz bilgisinden gösterilir.
 - İsteğe bağlı root araçları: açılışta bu arayüz ve orijinal LG ekran koruyucusunda 100 filmden İngilizce replik.
 
 LG C2 / webOS SDK 11.2.0 üzerinde denenmiştir. Diğer modellerde sistem ayarları farklı olabilir. Root edinme aracı içermez. Mevcut Launcher ile aynı uygulama kimliğini kullanır; onu günceller.
@@ -49,7 +51,7 @@ Değişiklikleri geri almadan launcher uygulamasını kaldırmayın.
 python3 /tmp/tv-native-quotes.py enable /tmp/quotes.en.json
 ```
 
-LG'nin Flutter ekran koruyucusu, analog saati, yazı tipi ve yumuşak geçişleri korunur. Türkçe düğme yönergesinin yerine tırnak içinde İngilizce replik, karakter (oyuncu) ve film/yıl gösterilir. Uzun replikler satırlara bölünür. Liste 100 farklı film içerir.
+LG'nin Flutter ekran koruyucusu, analog saati, yazı tipi ve yumuşak geçişleri korunur. Türkçe düğme yönergesinin yerine iki satır gösterilir: ilk satırda tırnak içinde İngilizce replik - karakter (oyuncu), ikinci satırda film (yıl). LG normal satır sonlarını tek satıra indirdiğinden Unicode satır ayırıcı kullanılır. Görünen alan iki satırla sınırlıdır; çok uzun birinci satırlar modele göre kesilebilir. Liste 100 farklı film içerir.
 
 Replik **her yeni ekran koruyucu oturumunda** ilerler; aynı oturum içinde değişmez. LG metni açılışta önbelleğe aldığı için çıkınca sıradaki metin hazırlanır ve arka planda kalan ekran koruyucu kapatılır. Sonraki girişte LG yeniden yükler. Görünme süresi ve saatle geçişin ritmi LG'nin kendi davranışıdır; metin uzunluğuna göre değiştirilmez.
 

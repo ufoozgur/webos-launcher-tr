@@ -34,3 +34,7 @@ New app artwork is sourced from publishers' Apple iTunes lookup records (Netflix
 The Panic Button animation is from [Tenor, Panic Button GIF](https://tenor.com/view/panic-button-gif-23870344), served from `https://media1.tenor.com/m/PoU5IHO6B7sAAAAC/panic-button.gif`. Rights remain with its respective owner. The static red button SVG is project code. Remove the GIF to use the static button alone.
 
 `screensaver/quotes.en.json` contains short English movie quotations and character/performer credits. Film dialogue belongs to its respective rights holders and is not licensed under this project's MIT license. Voice performers are credited for animated and synthetic characters. These are excerpts, not scripts or subtitles.
+
+## Contextual meme GIFs (1.3.0)
+
+The additional GIFs are sourced from Tenor. Per-file source pages, direct media URLs, descriptions and SHA-256 checksums are recorded in [public/memes/sources.json](public/memes/sources.json). They remain the property of their respective rights holders, are not MIT-licensed, and do not imply endorsement. The project bundles small GIF variants and renders only the focused tile's animation.

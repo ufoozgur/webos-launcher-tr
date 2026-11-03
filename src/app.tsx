@@ -21,7 +21,7 @@ const OPTION = {useHomebrew: 'use-homebrew'} as const;
 
 const MISC_TILES: TileModel[] = [
 	{key: MISC.lgHome, label: 'Panic Button', description: 'LG ana ekranına dön', imageUrl: 'memes/panic-static.svg', animatedImageUrl: 'memes/panic-button.gif'},
-	{key: MISC.settings, label: 'Ayarlar', glyph: 'gear'}
+	{key: MISC.settings, label: 'Ayarlar', glyph: 'gear', animatedImageUrl: 'memes/settings.gif'}
 ];
 
 export function App () {

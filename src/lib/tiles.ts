@@ -3,15 +3,16 @@
 import type {AppEntry} from './apps';
 import type {InputSource} from './inputs';
 import type {TileModel} from '../components/Tile';
+import {appMeme, inputMeme} from '../config/memes';
 
 const INPUT_ICON_DIR = 'icons/inputs/';
 
 export function appTile (app: AppEntry): TileModel {
-	return {key: app.id, label: app.title, imageUrl: app.iconUrl, color: app.color};
+	return {key: app.id, label: app.title, imageUrl: app.iconUrl, animatedImageUrl: appMeme(app.id), color: app.color};
 }
 
 export function inputTile (input: InputSource): TileModel {
-	return {key: input.appId, label: input.label, glyphImageUrl: INPUT_ICON_DIR + input.icon};
+	return {key: input.appId, label: input.label, glyphImageUrl: INPUT_ICON_DIR + input.icon, animatedImageUrl: inputMeme(input.label, input.icon, input.appId)};
 }
 
 /** Order `items` by an ID list, dropping IDs that no longer exist. */
