@@ -4,6 +4,7 @@ import fcntl
 import json
 import os
 import pathlib
+import random
 import signal
 import subprocess
 import sys
@@ -31,15 +32,28 @@ def mounted(target):
     return any(line.split()[1] == str(target) for line in pathlib.Path('/proc/mounts').read_text().splitlines())
 
 
+def choose_index(previous, count, randrange=random.randrange):
+    if count < 1:
+        raise ValueError('Replik listesi boş')
+    if count == 1:
+        return 0
+    if not 0 <= previous < count:
+        return randrange(count)
+    # Map a draw from N-1 entries around the previous entry, without retries.
+    index = randrange(count - 1)
+    return index + (index >= previous)
+
+
 def prepare(advance=False):
     # Only call after leaving ScreenSaver: Flutter reads this dictionary at startup.
     if call('com.webos.service.tvpower/power/getPowerState', {}).get('state') != 'Active':
         return
     quotes = json.loads((STATE / 'quotes.json').read_text())
     position = STATE / 'position.json'
-    index = json.loads(position.read_text())['index'] if position.exists() else 0
-    if advance:
-        index = (index + 1) % len(quotes)
+    saved = json.loads(position.read_text()) if position.exists() else {}
+    index = saved.get('index', -1)
+    if advance or saved.get('selection') != 'random' or not 0 <= index < len(quotes):
+        index = choose_index(index, len(quotes))
     quote = quotes[index]
     # Stock Flutter flattens LF; U+2028 survives. Its guide only shows two lines.
     text = '“' + quote['text'] + '” - ' + quote['character'] + ' (' + quote['actor'] + ')\u2028' + quote['film'] + ' (' + str(quote['year']) + ')'
@@ -54,7 +68,7 @@ def prepare(advance=False):
     # Recheck before closing; never close an active saver.
     if call('com.webos.service.tvpower/power/getPowerState', {}).get('state') == 'Active':
         call('com.webos.applicationManager/closeByAppId', {'id': APP})
-    position.write_text(json.dumps({'index': index}) + '\n')
+    position.write_text(json.dumps({'index': index, 'selection': 'random'}) + '\n')
     print('Prepared quote %d/%d: %s' % (index + 1, len(quotes), quote['film']), flush=True)
 
 

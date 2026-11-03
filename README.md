@@ -53,7 +53,7 @@ python3 /tmp/tv-native-quotes.py enable /tmp/quotes.en.json
 
 LG'nin Flutter ekran koruyucusu, analog saati, yazı tipi ve yumuşak geçişleri korunur. Türkçe düğme yönergesinin yerine iki satır gösterilir: ilk satırda tırnak içinde İngilizce replik - karakter (oyuncu), ikinci satırda film (yıl). LG normal satır sonlarını tek satıra indirdiğinden Unicode satır ayırıcı kullanılır. Görünen alan iki satırla sınırlıdır; çok uzun birinci satırlar modele göre kesilebilir. Liste 100 farklı film içerir.
 
-Replik **her yeni ekran koruyucu oturumunda** ilerler; aynı oturum içinde değişmez. LG metni açılışta önbelleğe aldığı için çıkınca sıradaki metin hazırlanır ve arka planda kalan ekran koruyucu kapatılır. Sonraki girişte LG yeniden yükler. Görünme süresi ve saatle geçişin ritmi LG'nin kendi davranışıdır; metin uzunluğuna göre değiştirilmez.
+Replik **her yeni ekran koruyucu oturumunda rastgele** seçilir; aynı replik art arda gelmez. Aynı oturum içinde değişmez. LG metni açılışta önbelleğe aldığı için çıkınca rastgele seçilen sonraki metin hazırlanır ve arka planda kalan ekran koruyucu kapatılır. Sonraki girişte LG yeniden yükler. Görünme süresi ve saatle geçişin ritmi LG'nin kendi davranışıdır; metin uzunluğuna göre değiştirilmez.
 
 Küçük bir Python dinleyicisi güç durumu olaylarını bekler; düzenli sorgu yapmaz. Sistem dosyası silinmez: Türkçe çeviri dosyasının üzerine geçici bir bind mount uygulanır. Açılış betiği bunu tekrar kurar. Diğer diller etkilenmez. Sistem güncellemeleri sonrasında yeniden doğrulama gerekebilir.
 
