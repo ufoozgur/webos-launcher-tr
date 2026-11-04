@@ -366,3 +366,8 @@ html, body {
 
 
 .tile__image--meme { object-fit: contain; background: #080808; }
+.rows--with-recent { top: 190px; }
+.rows--with-recent .row { margin-bottom: 10px; }
+.row--compact { margin-bottom: 18px; }
+.recent-pill { border: 2px solid #444; border-radius: 24px; background: #161616; color: #aaa; font: inherit; font-size: 20px; padding: 9px 22px; margin: 0 8px; outline: none; }
+.recent-pill--focused { border-color: #eee; color: #fff; background: #303030; }

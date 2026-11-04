@@ -7,6 +7,7 @@ interface Props {
 	focused: boolean;
 	selected: number;
 	emptyText?: string;
+	compact?: boolean;
 	onSelect: (index: number) => void;
 	onActivate: (index: number) => void;
 }
@@ -16,20 +17,20 @@ const STEP = LAYOUT.tileSize + LAYOUT.tileGap;
 
 /** Horizontal strip of tiles. Centred when it fits; otherwise a carousel that keeps
  *  the selected tile in the middle (clamped at the ends). */
-export function Row ({label, items, focused, selected, emptyText, onSelect, onActivate}: Props) {
+export function Row ({label, items, focused, selected, emptyText, compact, onSelect, onActivate}: Props) {
 	const pageSize = Math.max(1, Math.floor((VIEWPORT_WIDTH + LAYOUT.tileGap) / STEP));
 	const start = Math.floor(selected / pageSize) * pageSize;
 	const visible = items.slice(start, start + pageSize);
 
 	return (
-		<section class={`row${focused ? ' row--focused' : ''}`}>
+		<section class={`row${focused ? ' row--focused' : ''}${compact ? ' row--compact' : ''}`}>
 			<h2 class="row__label">{label}{items.length > pageSize && <span class="row__page">{Math.floor(start / pageSize) + 1} / {Math.ceil(items.length / pageSize)}</span>}</h2>
 			<div class="row__viewport">
 				{items.length === 0
 					? <div class="row__empty">{emptyText || 'Henüz öğe yok'}</div>
 					: <div class="row__track row__track--centered">
 						{visible.map((item, i) => (
-							<Tile
+							compact ? <button key={item.key} class={`recent-pill${focused && start + i === selected ? ' recent-pill--focused' : ''}`} onMouseEnter={() => onSelect(start + i)} onClick={() => onActivate(start + i)}>{item.label}</button> : <Tile
 								key={item.key}
 								model={item}
 								focused={focused && start + i === selected}

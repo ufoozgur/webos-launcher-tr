@@ -12,6 +12,7 @@ export interface HomeRow {
 	label: string;
 	items: TileModel[];
 	emptyText?: string;
+	compact?: boolean;
 }
 
 interface Props {
@@ -60,11 +61,12 @@ export function Home ({rows, active, onActivate}: Props) {
 		<div class="screen">
 			<Header now={now} />
 			<Clock now={now} format={timeFormat} />
-			<div class="rows">
+			<div class={`rows${rows.some(row => row.compact) ? ' rows--with-recent' : ''}`}>
 				{rows.map((row, i) => (
 					<Row
 						key={row.id}
 						label={row.label}
+						compact={row.compact}
 						items={row.items}
 						emptyText={row.emptyText}
 						focused={active && visible && i === rowIndex}

@@ -1,6 +1,6 @@
 {
   "id": "works.partridge.webos-launcher",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "vendor": "works.partridge.webos-launcher",
   "type": "web",
   "main": "index.html",

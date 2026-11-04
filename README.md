@@ -6,12 +6,16 @@ LG webOS için sade ana ekran. [partridgeworks/webos-launcher](https://github.co
 - Uygulama ve HDMI seçimi/sıralaması; kesilmeyen logolar.
 - Tuşla ilgili meme GIF’leri yalnızca seçili tuşta oynar; arka planda durur.
 - **Panic Button:** LG ana ekranına döner.
+- **Son Kullanılanlar:** bu menüden başarıyla açılan son altı uygulama/HDMI girişi; yalnızca TV’de saklanır, sürekli takip servisi yoktur.
+- **Uykuya Geç:** LG’nin yerel Zamanlayıcılar ekranında Uyuma Zamanlayıcısı seçeneğini açar. Süreyi veya iptali LG menüsünden seçin. Ek sayaç servisi çalışmaz; Denon’un kapanması mevcut HDMI-CEC/SIMPLINK ayarına bağlıdır.
 - **Ben Yokum:** kurulu ekran koruyucu uygulamasını açar. Özel koruyucu aşağıdaki root modülüyle kurulur.
 - **Tavşan Deliği:** her basışta internetten konu filtresiz bir kura çeker, videoyu YouTube’da doğrudan açar. Son 150 seçimden kaçınır.
 
 Tavşan Deliği, [Random Video](https://random-video.com/about/) servisinin yaklaşık 4,5 milyar YouTube kimliği içeren 2021 arşivinden internet üzerinden her basışta yeni kura çeker. Dil, konu, yıl ve izlenme kategorilerinin tümü açıktır; anahtar kelime araması ve kişiselleştirme kullanılmaz. Bu arşiv YouTube'un tamamı değildir ve yeni yüklemeleri içermez. Silinmiş/özel videolar YouTube oEmbed ile kontrol edilir; üç deneme sonunda uygun video yoksa hata gösterilir, konu aramasına veya sabit listeye dönülmez. oEmbed kontrolü TV'deki bölge, hesap veya yaş sınırlamalarını garanti etmez. Son 150 video tekrar seçilmez. Random Video ve YouTube bağlantının IP adresini görebilir; hesap tokenı ve çerez gönderilmez.
 
 ## Derleme ve kurulum
+
+1.5.2 sürümü ayrıca `action: "random-video"` başlatma parametresini destekler; yalnızca bu açık eylem Tavşan Deliği’ni tetikler. Normal Home dönüşü video başlatmaz. Shahid eşlemesinin geri alınması için TV’de `94-launcher-tr-shahid` başlangıç kancasını kaldırıp `inputhook/before.json` yedeğindeki 1092 eşlemesini geri yükleyin; etkin kanca yeniden başlatmayla boşalır. Diğer tuş eşlemelerini silmeyin. Govee deneme eşlemesi `93-launcher-tr-govee` kancası kaldırılıp kendi `govee/power.py` süreci durdurularak geri alınır. Cihaza özel Govee yapılandırması depoya dahil değildir.
 
 Node.js 22 veya üzeriyle:
 
