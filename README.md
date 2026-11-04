@@ -15,6 +15,14 @@ Tavşan Deliği, [Random Video](https://random-video.com/about/) servisinin yakl
 
 ## Derleme ve kurulum
 
+### Govee H6099 — isteğe bağlı, root
+
+`scripts/tv-govee-cloud.py` TV’nin güç olaylarını dinler; H6099’u Govee’nin resmî bulut API’siyle açıp kapatır. Sürekli durum sorgulamaz; ekran koruyucu geçişi ışığı kapatmaz. İnternet ve geçerli API anahtarı gerekir. Her açılışta parlaklık %100 yapılır; renk ve sahne değiştirilmez. LG C2 + H6099 üzerinde kumandadan kapanıp açılma doğrulandı; tam soğuk açılış ayrıca denenmedi.
+
+Govee Home → Profil → Ayarlar → Apply for API Key üzerinden kendi anahtarınızı alın. [Cihaz listesi API’si](https://developer.govee.com/reference/get-you-devices) ile H6099 cihaz kimliğini doğrulayın. TV’de yalnızca root’un okuyabildiği `/var/lib/webos-launcher-tr/govee-cloud/config.json` dosyasını `{"apiKey":"KENDI_ANAHTARINIZ","sku":"H6099","device":"KENDI_CIHAZ_KIMLIGINIZ"}` biçiminde hazırlayın. Anahtarı depoya eklemeyin.
+
+`tv-govee-cloud.py` ve `tv-govee-cloud-install.py` dosyalarını aynı TV klasörüne (örneğin `/tmp`) kopyalayıp `python3 /tmp/tv-govee-cloud-install.py` çalıştırın. Kurucu durum erişimini doğrular ve açılış kancasını kurar. Tek örnek kilidi ikinci izleyicinin çalışmasını engeller. Geri alma: `tv-govee-cloud-disable.py` dosyasını TV’ye kopyalayıp çalıştırın. Yalnızca bu otomasyon ve kendi alt süreci kapanır; ışığın mevcut durumu, diğer eşlemeler ve hesap ayarları korunur.
+
 1.5.2 sürümü ayrıca `action: "random-video"` başlatma parametresini destekler; yalnızca bu açık eylem Tavşan Deliği’ni tetikler. Normal Home dönüşü video başlatmaz. Shahid eşlemesinin geri alınması için TV’de `94-launcher-tr-shahid` başlangıç kancasını kaldırıp `inputhook/before.json` yedeğindeki 1092 eşlemesini geri yükleyin; etkin kanca yeniden başlatmayla boşalır. Diğer tuş eşlemelerini silmeyin. Govee deneme eşlemesi `93-launcher-tr-govee` kancası kaldırılıp kendi `govee/power.py` süreci durdurularak geri alınır. Cihaza özel Govee yapılandırması depoya dahil değildir.
 
 Node.js 22 veya üzeriyle:
