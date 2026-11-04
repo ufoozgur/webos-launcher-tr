@@ -807,10 +807,11 @@ function durationMs(quote) {
  var words = quote.text.trim().split(/\s+/).length;
  return Math.max(13000, Math.min(35000, 6500 + words * 550 + (quote.character.length + quote.actor.length + quote.film.length) * 45));
 }
-function nextSelection(state, count, random) {
+function nextSelection(state, count, random, datasetSignature) {
+ var activeSignature=datasetSignature || signature;
  if (count < 1) throw new Error('Empty quote list');
  var remaining = Array.isArray(state.remaining) ? state.remaining.slice() : [];
- var valid = state.signature === signature;
+ var valid = state.signature === activeSignature;
  var seen = {};
  for (var i=0;i<remaining.length;i++) {
   var n=remaining[i];if(typeof n !== 'number'||n%1!==0||n<0||n>=count||seen[n]||n===state.index)valid=false;seen[n]=true;
@@ -822,7 +823,7 @@ function nextSelection(state, count, random) {
   if(count>1&&remaining[0]===state.index){var first=remaining[0];remaining[0]=remaining[1];remaining[1]=first;}
   cycle++;
  }
- return {index:remaining.shift(),remaining:remaining,cycle:cycle,signature:signature};
+ return {index:remaining.shift(),remaining:remaining,cycle:cycle,signature:activeSignature};
 }
 function turkishDate(date) {
  var months=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];

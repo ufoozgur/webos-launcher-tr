@@ -9,3 +9,4 @@ tv.env
 src/config/catalog.local.ts
 
 .webos-cli/
+screensaver/paintings/*.jpg

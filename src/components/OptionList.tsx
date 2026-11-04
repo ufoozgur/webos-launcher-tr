@@ -3,6 +3,7 @@ export interface OptionItem {
 	label: string;
 	description: string;
 	value: boolean;
+	kind?: 'choice';
 }
 
 interface Props {
@@ -28,9 +29,9 @@ export function OptionList ({options, focused, selected, onSelect, onActivate}: 
 						<div class="option__label">{o.label}</div>
 						<div class="option__description">{o.description}</div>
 					</div>
-					<div class={`switch${o.value ? ' switch--on' : ''}`} role="switch" aria-checked={o.value}>
+					{o.kind === 'choice' ? <div role="radio" aria-checked={o.value} style={{fontSize: '32px', padding: '0 18px'}}>{o.value ? '◉' : '○'}</div> : <div class={`switch${o.value ? ' switch--on' : ''}`} role="switch" aria-checked={o.value}>
 						<div class="switch__knob" />
-					</div>
+					</div>}
 				</div>
 			))}
 		</div>

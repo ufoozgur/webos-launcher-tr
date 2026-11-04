@@ -42,7 +42,7 @@ def main():
         native=STATE/'flutter-text/native-quotes.py'
         if pathlib.Path('/var/lib/webosbrew/init.d/92-webos-launcher-tr-native-quotes').exists() and native.exists():
             subprocess.run(['/usr/bin/python3',str(native),'disable'],check=True)
-        for filename in ['Quotes.qml','Quotes.js','fonts/Orbitron.ttf','fonts/Cinzel.ttf','fonts/BebasNeue.ttf','fonts/PlayfairDisplay.ttf','fonts/ShareTechMono.ttf','fonts/ComicNeue.ttf']:
+        for filename in ['Quotes.qml','Quotes.js','Content.js','paintings.json','fonts/Orbitron.ttf','fonts/Cinzel.ttf','fonts/BebasNeue.ttf','fonts/PlayfairDisplay.ttf','fonts/ShareTechMono.ttf','fonts/ComicNeue.ttf']:
             if not (SAVER/filename).is_file():raise RuntimeError('Eksik dosya: '+filename)
         backup=STATE/'screensaver.original.json'
         if not backup.exists():backup.write_bytes(TARGET.read_bytes())
@@ -51,6 +51,9 @@ def main():
         qml.mkdir(exist_ok=True)
         shutil.copyfile(SAVER/'Quotes.qml',qml/'main.qml')
         shutil.copyfile(SAVER/'Quotes.js',qml/'Quotes.js')
+        shutil.copyfile(SAVER/'Content.js',qml/'Content.js')
+        records=json.loads((SAVER/'paintings.json').read_text())
+        if len(records)<50 or any(not (SAVER/r['image']).is_file() for r in records):raise RuntimeError('En az 50 tablo görseli gerekli')
         if not (qml/'fonts').exists():(qml/'fonts').symlink_to('../fonts',target_is_directory=True)
         manifest.update(type='qml',main='qml/main.qml',title='Replikli Ekran Koruyucu',resolution='1920x1080')
         OVERRIDE.write_text(json.dumps(manifest,indent=2)+'\n')

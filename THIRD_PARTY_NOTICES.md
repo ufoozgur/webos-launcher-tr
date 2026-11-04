@@ -44,3 +44,10 @@ The additional GIFs are sourced from Tenor. Per-file source pages, direct media 
 The optional QML screensaver includes Orbitron, Cinzel, Bebas Neue, Playfair Display, Share Tech Mono and Comic Neue. Each is distributed under SIL Open Font License 1.1; its license is included next to the font in `screensaver/fonts/`. These font licenses are separate from the code's MIT license. Comic Neue is from [Google Fonts](https://github.com/google/fonts/tree/main/ofl/comicneue). Fonts are selected for a film's mood, not represented as the film's official licensed title lettering.
 
 The additional Homer and Rick Astley button GIFs and static previews are attributed in `public/memes/sources.json`.
+
+
+## Art gallery and Turkish facts (1.5.0)
+
+The 60 paintings are public-domain works marked Open Access by The Metropolitan Museum of Art. The museum provides their data and images under [CC0](https://www.metmuseum.org/about-the-met/policies-and-documents/open-access). Per-work object links, original image URLs, artist names, dates, original medium, Turkish medium descriptions and prepared-image hashes are in `screensaver/paintings.json`. Images are resized without cropping. The museum does not endorse this project. The source repository provides a one-time downloader; the offline installation bundle includes the prepared images.
+
+The 100 Turkish fact texts are original concise paraphrases. Each entry records its institutional source, direct source URL and review date in `screensaver/facts.tr.json`. Sources include NASA Science, NOAA, USGS Water Science School, Smithsonian National Zoo and Monterey Bay Aquarium. Institutional names identify sources; no endorsement is implied. Scientific quantities are approximate where stated. Facts are not claimed to be unknown to everyone.

@@ -42,7 +42,7 @@ Geri alma:
 python3 /var/lib/webos-launcher-tr/home.py disable
 ```
 
-## Akıcı saat/replik ekran koruyucu — isteğe bağlı, root
+## Üç modlu akıcı ekran koruyucu — isteğe bağlı, root
 
 Bu mod, LG’nin analog saat görünümüne benzer bir QML ekran koruyucusudur. Orijinal LG Flutter uygulaması değildir. Orijinal dosyalar silinmez; uygulama klasörüne geri alınabilir bir bind mount uygulanır.
 
@@ -54,7 +54,28 @@ Bu mod, LG’nin analog saat görünümüne benzer bir QML ekran koruyucusudur. 
 - Okuma süresi metnin uzunluğuna göre 13–35 saniyedir. Gösterim konumu değişir.
 - Bir kumanda tuşu veya tıklama koruyucudan çıkarır. Çember ve geçişler görünürken animasyon çalışır; saat yalnızca gerektiğinde yeniden çizilir.
 
-Kurulum: `screensaver/` klasörünün tamamını TV’de `/var/lib/webos-launcher-tr/screensaver/` konumuna, `scripts/tv-screensaver.py` dosyasını `/tmp/tv-screensaver.py` konumuna kopyalayın. `Quotes.qml`, `Quotes.js` ve `fonts/` aynı klasörün altında bulunmalıdır. Sonra:
+### Ekran koruyucu seçimi (1.5.0)
+
+**Ayarlar → Seçenekler** altında bir mod seçin:
+
+- **Film replikleri:** 100 farklı film, İngilizce replik ve üç satırlı bilgiler.
+- **İlginç bilgiler:** NASA, NOAA, USGS, Smithsonian ve Monterey Bay Aquarium kaynaklarından özgün Türkçe anlatımla 100 bilgi. Kaynak kurum ekranda, bağlantılar `screensaver/facts.tr.json` içindedir. Metin uzunluğuna göre 18–45 saniye gösterilir; saatle yumuşak geçiş yapar.
+- **Ünlü tablolar:** The Met'in öne çıkan koleksiyonundan **50 sanatçıya ait 60 eser**. Görüntü kırpılmadan ekrana sığar; dikey eserlerin yanında siyah alan kalabilir. Eser adı, sanatçı, yıl ve teknik yarı saydam bir panelde gösterilir. Panel her eserde köşe değiştirir. Her tablo 45 saniye kalır; 1,8 saniyelik yumuşak solmalarla değişir.
+
+Her modun ayrı karıştırılmış destesi vardır; tüm liste bitmeden tekrar etmez, oturumlar arasında durum saklanır. Seçim hem Ben Yokum tuşunda hem TV'nin otomatik çağrısında geçerlidir. Seçimi kaydetmek için görünmeyen kısa bir QML çağrısı kullanılır; ek yetki veya sürekli arka plan servisi eklenmez.
+
+Tablolar TV'de yerel dosyalardır; koruyucu çalışırken internet kullanılmaz. Kaynak depoda büyük resimler yerine CC0 kaynak bağlantıları ve metadata bulunur. Kaynaktan kurulumda masaüstü bilgisayarda önce:
+
+```sh
+npm install --no-save sharp
+node scripts/download-paintings.mjs
+node scripts/build-content.mjs
+node scripts/check-content.mjs --require-images
+```
+
+İndirme, müzenin özgün görsellerini en fazla 1920×1080 boyutuna oranlarını koruyarak hazırlar. `paintings.json` içindeki SHA-256 değerleri bu sürümün hazırlanmış dosyalarına aittir; farklı sharp sürümleri dosyayı farklı kodlayabilir. İndirmenin başarısız olduğu durumda eksik görsellerle kurmayın. Hazır çevrimdışı pakette 60 görsel bulunur.
+
+Kurulum: `screensaver/` klasörünün tamamını TV’de `/var/lib/webos-launcher-tr/screensaver/` konumuna, `scripts/tv-screensaver.py` dosyasını `/tmp/tv-screensaver.py` konumuna kopyalayın. `Quotes.qml`, `Quotes.js`, `Content.js`, `facts.tr.json`, `paintings.json`, `paintings/` ve `fonts/` aynı klasörün altında bulunmalıdır. Sonra:
 
 ```sh
 python3 /tmp/tv-screensaver.py enable
@@ -68,7 +89,7 @@ Orijinal LG ekran koruyucusuna dönüş:
 python3 /var/lib/webos-launcher-tr/screensaver.py disable
 ```
 
-Deste dosyası `/var/lib/webos-launcher-tr/screensaver/quote-deck.ini` içinde kalır. Orijinal manifest yedeği `/var/lib/webos-launcher-tr/screensaver.original.json` konumundadır. Modülü geri almadan dosyalarını veya launcher’ı kaldırmayın.
+Deste dosyaları ve seçim `/var/lib/webos-launcher-tr/screensaver/` içindeki INI dosyalarında kalır. Orijinal manifest yedeği `/var/lib/webos-launcher-tr/screensaver.original.json` konumundadır. Modülü geri almadan dosyalarını veya launcher’ı kaldırmayın.
 
 ## Alternatif: LG’nin orijinal Flutter koruyucusunda metin
 

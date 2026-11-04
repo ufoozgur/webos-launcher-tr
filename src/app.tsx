@@ -6,11 +6,11 @@ import {Toast, type ToastMessage} from './components/Toast';
 import type {TileModel} from './components/Tile';
 import {listApps, type AppEntry} from './lib/apps';
 import {listInputs, MOCK_INPUTS, type InputSource} from './lib/inputs';
-import {launchApp, launchLgHome, startScreensaver} from './lib/launch';
+import {launchApp, launchLgHome, startScreensaver, configureScreensaver} from './lib/launch';
 import {randomVideo} from './lib/randomVideo';
 import {isWebOS} from './lib/luna';
 import {hidePointerOnForeground} from './lib/pointer';
-import {loadConfig, saveConfig, toggleId, type UserConfig} from './lib/storage';
+import {loadConfig, saveConfig, toggleId, type UserConfig, type SaverMode} from './lib/storage';
 import {appTile, inputTile, pickInOrder} from './lib/tiles';
 import {TIMING} from './config/constants';
 
@@ -89,13 +89,16 @@ export function App () {
 	], [apps, inputs, shownApps, shownInputs]);
 
 	const options: OptionItem[] = useMemo(() => [
+		{id: 'saver-quotes', label: 'Ekran koruyucu: Film replikleri', description: '100 film • İngilizce replikler, filme uygun yazı tipleri ve saat', value: config.saverMode === 'quotes', kind: 'choice'},
+		{id: 'saver-facts', label: 'Ekran koruyucu: İlginç bilgiler', description: '100 kaynaklı Türkçe bilgi • Okuma uzunluğuna göre süre ve saat', value: config.saverMode === 'facts', kind: 'choice'},
+		{id: 'saver-art', label: 'Ekran koruyucu: Ünlü tablolar', description: '60 eser • Sanatçı, yıl ve teknik • Yumuşak geçişler', value: config.saverMode === 'art', kind: 'choice'},
 		{
 			id: OPTION.useHomebrew,
 			label: 'Kurulu uygulamaları otomatik listele',
 			description: 'TV’de kurulu uygulamaları ve simgelerini Homebrew Channel üzerinden alır. Kapalıyken kayıtlı liste kullanılır.',
 			value: config.useHomebrew
 		}
-	], [config.useHomebrew]);
+	], [config.useHomebrew, config.saverMode]);
 
 	// ----- actions -----
 	const open = (id: string, label: string) => {
@@ -106,7 +109,7 @@ export function App () {
 		if (rowId === ROW.misc) {
 			if (item.key === MISC.settings) setScreen('settings');
 			else if (item.key === MISC.lgHome) launchLgHome().catch(() => showToast('LG ana ekranı açılamadı', 'error'));
-			else if (item.key === MISC.saver) startScreensaver().catch(() => showToast('Ekran koruyucu açılamadı; başlatma iznini kontrol et', 'error'));
+			else if (item.key === MISC.saver) startScreensaver(config.saverMode).catch(() => showToast('Ekran koruyucu açılamadı', 'error'));
 			else if (item.key === MISC.random && !findingVideo.current) {
 				findingVideo.current = true;
 				showToast('Tavşan deliği kazılıyor…');
@@ -117,7 +120,7 @@ export function App () {
 			return;
 		}
 		open(item.key, item.label);
-	}, [showToast]);
+	}, [showToast, config.saverMode]);
 
 	const onToggle = useCallback((tabId: string, key: string) => {
 		if (tabId === ROW.apps) {
@@ -130,7 +133,13 @@ export function App () {
 
 	const onOption = useCallback((optionId: string) => {
 		if (optionId === OPTION.useHomebrew) updateConfig({...config, useHomebrew: !config.useHomebrew});
-	}, [config]);
+		else if (optionId.startsWith('saver-')) {
+			const mode = optionId.slice(6) as SaverMode;
+			if (!['quotes', 'facts', 'art'].includes(mode)) return;
+			configureScreensaver(mode).then(() => { updateConfig({...config, saverMode: mode}); showToast('Ekran koruyucu seçimi kaydedildi'); })
+				.catch(() => showToast('Ekran koruyucu seçimi kaydedilemedi', 'error'));
+		}
+	}, [config, showToast]);
 
 	/** Replace a row's order with `keys` (the full list of what's shown). */
 	const onReorder = useCallback((tabId: string, keys: string[]) => {

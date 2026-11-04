@@ -43,7 +43,7 @@ const HINT = {
 	select: 'OK: ekle / kaldır · OK’ye basılı tut: sırala · Geri: ana ekran',
 	reorder: 'OK: taşınacak öğeyi seç · Bitirmek için OK’ye basılı tut veya Tamam’ı seç',
 	holding: 'Yön tuşları: taşı · OK: yerleştir · Geri: iptal',
-	options: 'OK: aç / kapat · Geri: ana ekran'
+	options: 'OK: seç / değiştir · Geri: ana ekran'
 } as const;
 
 /** Settings: pick which apps and sources appear on the home rows and their order, plus options.

@@ -1,5 +1,6 @@
 import {LUNA, SYSTEM_APP} from '../config/constants';
 import {lunaCall} from './luna';
+import type {SaverMode} from './storage';
 
 /** Launch an app or switch to an input (HDMI inputs are apps too: com.webos.app.hdmiN). */
 export function launchApp (id: string, params: object = {}): Promise<void> {
@@ -12,8 +13,13 @@ export function launchLgHome (): Promise<void> {
 }
 
 /** Root-installed clock/quote screensaver, launched through the normal app API. */
-export function startScreensaver(): Promise<void> {
-	return launchApp('com.webos.app.screensaver');
+export function startScreensaver(mode?: SaverMode): Promise<void> {
+	return launchApp('com.webos.app.screensaver', {configureOnly: false, ...(mode ? {mode} : {})});
+}
+
+/** Save the automatic saver preference without displaying the saver. */
+export function configureScreensaver(mode: SaverMode): Promise<void> {
+	return launchApp('com.webos.app.screensaver', {mode, configureOnly: true});
 }
 
 /** Whether an app with this ID exists on the TV (permitted from a web app, unlike listing). */

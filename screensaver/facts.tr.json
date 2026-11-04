@@ -1,0 +1,802 @@
+[
+  {
+    "id": 1,
+    "category": "Uzay",
+    "text": "Merkür’de bir öğleden diğerine geçen süre, yaklaşık 176 Dünya günüdür.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/mercury/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 2,
+    "category": "Uzay",
+    "text": "Merkür’ün Güneş çevresindeki bir turu yalnızca 88 Dünya günü sürer.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/mercury/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 3,
+    "category": "Uzay",
+    "text": "Merkür’de gündüz sıcaklığı yaklaşık 430 °C’ye çıkarken gece −180 °C’ye inebilir.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/mercury/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 4,
+    "category": "Uzay",
+    "text": "Merkür’ün metal çekirdeğinin yarıçapı, gezegenin yarıçapının yaklaşık yüzde 85’idir.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/mercury/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 5,
+    "category": "Uzay",
+    "text": "Merkür’deki kraterlere sanatçıların, müzisyenlerin ve yazarların adları verilir.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/mercury/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 6,
+    "category": "Uzay",
+    "text": "Venüs’ün yıldızlara göre kendi ekseni etrafında dönüşü 243, Güneş çevresindeki turu 225 Dünya günü sürer.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/venus/venus-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 7,
+    "category": "Uzay",
+    "text": "Venüs’te Güneş batıdan doğar, doğudan batar; gezegen Dünya’nın ters yönünde döner.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/venus/venus-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 8,
+    "category": "Uzay",
+    "text": "Venüs’ün yüzeyindeki atmosfer basıncı, Dünya’da deniz seviyesindekinin yaklaşık 93 katıdır.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/venus/venus-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 9,
+    "category": "Uzay",
+    "text": "Venüs de Ay gibi evreler gösterir; bu evreler Galileo’nun Güneş merkezli modeli desteklemesine yardımcı oldu.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/venus/venus-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 10,
+    "category": "Uzay",
+    "text": "Venüs’ün yarı uydusu Zoozve’nin adı, bir sanatçının “2002 VE” yazısını yanlış okumasından doğdu.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/venus/venus-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 11,
+    "category": "Uzay",
+    "text": "Mars’ın kızıllığı, yüzeyindeki demir minerallerinin oksitlenmesinden kaynaklanır.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/mars/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 12,
+    "category": "Uzay",
+    "text": "Güneş Sistemi’nin en büyük yanardağı Olympus Mons, Mars’tadır.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/mars/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 13,
+    "category": "Uzay",
+    "text": "Mars’taki Valles Marineris kanyon sistemi yaklaşık 3.870 kilometre boyunca uzanır.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/mars/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 14,
+    "category": "Uzay",
+    "text": "Çapı Dünya’nın yaklaşık yarısı olan Mars’ın yüzey alanı, Dünya’daki kuru kara alanına yakındır.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/mars/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 15,
+    "category": "Uzay",
+    "text": "Mars’ın toz fırtınaları bütün gezegeni kaplayabilir; tozun tamamen çökmesi aylar sürebilir.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/mars/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 16,
+    "category": "Uzay",
+    "text": "Jüpiter kendi etrafındaki bir dönüşü yaklaşık 9,9 saatte tamamlar; gezegenler arasında en hızlı dönen odur.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/jupiter/jupiter-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 17,
+    "category": "Uzay",
+    "text": "Jüpiter’in üzerine inilebilecek katı bir yüzeyi yoktur; derinlere indikçe basınç ve sıcaklık artar.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/jupiter/jupiter-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 18,
+    "category": "Uzay",
+    "text": "Jüpiter’in derinliklerindeki hidrojenin, çok yüksek basınç altında metal gibi elektrik ilettiği düşünülüyor.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/jupiter/jupiter-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 19,
+    "category": "Uzay",
+    "text": "Jüpiter’in de halkaları vardır; bu sönük halkaları Voyager 1 uzay aracı 1979’da keşfetti.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/jupiter/jupiter-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 20,
+    "category": "Uzay",
+    "text": "Juno ölçümlerine göre Jüpiter’in Büyük Kırmızı Leke fırtınası, bulut tepelerinin yaklaşık 500 kilometre altına uzanır.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/jupiter/jupiter-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 21,
+    "category": "Uzay",
+    "text": "Satürn, Güneş Sistemi’nde ortalama yoğunluğu sudan düşük olan tek gezegendir.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/saturn/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 22,
+    "category": "Uzay",
+    "text": "Satürn’ün kuzey kutbundaki dev atmosfer akımı, altıgen biçiminde bir desen oluşturur.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/saturn/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 23,
+    "category": "Uzay",
+    "text": "Satürn’ün geniş ana halkalarının tipik dikey kalınlığı yalnızca yaklaşık 10 metredir.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/saturn/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 24,
+    "category": "Uzay",
+    "text": "Satürn’ün halkaları tek parça dönmez; farklı halkalar gezegenin çevresinde farklı hızlarda dolanır.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/saturn/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 25,
+    "category": "Uzay",
+    "text": "Satürn’ün halkalarındaki parçalar, küçük toz tanelerinden dağ boyutundaki buz ve kaya parçalarına kadar değişir.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/saturn/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 26,
+    "category": "Uzay",
+    "text": "Uranüs’ün ekseni yaklaşık 98 derece eğiktir; gezegen yörüngesinde sanki yan yatmış gibi ilerler.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/uranus/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 27,
+    "category": "Uzay",
+    "text": "1781’de William Herschel tarafından bulunan Uranüs, teleskop yardımıyla keşfedilen ilk gezegendir.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/uranus/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 28,
+    "category": "Uzay",
+    "text": "Uranüs, Güneş çevresindeki bir turunu yaklaşık 84 Dünya yılında tamamlar.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/uranus/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 29,
+    "category": "Uzay",
+    "text": "Uranüs’ün uydularının adları, Shakespeare ve Alexander Pope’un eserlerindeki karakterlerden gelir.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/uranus/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 30,
+    "category": "Uzay",
+    "text": "Uranüs atmosferindeki metan kırmızı ışığı soğurur; gezegen bu nedenle mavi-yeşil görünür.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/uranus/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 31,
+    "category": "Uzay",
+    "text": "Neptün’ün yeri önce matematikle öngörüldü; Johann Galle, 1846’da ilk arama gecesinde gezegeni buldu.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/neptune/neptune-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 32,
+    "category": "Uzay",
+    "text": "Neptün, keşfinden sonraki ilk tam Güneş turunu 2011’de tamamladı; bir yılı yaklaşık 165 Dünya yılıdır.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/neptune/neptune-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 33,
+    "category": "Uzay",
+    "text": "Neptün’ün uydusu Triton, gezegenin dönüş yönünün tersine dolanır.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/neptune/neptune-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 34,
+    "category": "Uzay",
+    "text": "Güneş’ten çıkan ışığın Neptün’e ulaşması yaklaşık dört saat sürer.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/neptune/neptune-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 35,
+    "category": "Uzay",
+    "text": "Neptün’de bir mevsim, 40 Dünya yılından daha uzun sürer.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/neptune/neptune-facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 36,
+    "category": "Uzay",
+    "text": "Güneş’in dış atmosferi korona, görünür yüzeyinden çok daha sıcaktır; sıcaklığı milyonlarca dereceye ulaşabilir.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/sun/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 37,
+    "category": "Uzay",
+    "text": "Güneş’in çekirdeği yaklaşık 15 milyon °C’dir; enerji burada nükleer füzyonla üretilir.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/sun/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 38,
+    "category": "Uzay",
+    "text": "Güneş katı bir cisim gibi dönmez: ekvatoru yaklaşık 25, kutup bölgeleri 36 günde bir tur atar.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/sun/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 39,
+    "category": "Uzay",
+    "text": "Güneş’in Samanyolu merkezi çevresindeki bir turu yaklaşık 230 milyon yıl sürer.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/sun/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 40,
+    "category": "Uzay",
+    "text": "Güneş’in hacmine yaklaşık 1,3 milyon Dünya sığabilir.",
+    "sourceName": "NASA",
+    "sourceUrl": "https://science.nasa.gov/sun/facts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 41,
+    "category": "Okyanus",
+    "text": "Denizde her yaklaşık 10 metrelik iniş, üzerinizdeki basınca yaklaşık bir atmosfer daha ekler.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/pressure.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 42,
+    "category": "Okyanus",
+    "text": "Bazı balinaların esnek kaburgaları ve akciğerleri, derin dalışlarda su basıncına uyum sağlamalarına yardım eder.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/pressure.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 43,
+    "category": "Okyanus",
+    "text": "İspermeçet balinaları, kalamar ararken yaklaşık iki kilometre derinliğe dalabilir.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/pressure.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 44,
+    "category": "Okyanus",
+    "text": "Okyanusun maviliği yalnızca gökyüzünün yansıması değildir; su, kırmızı ışığı daha çok soğurur.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/oceanblue.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 45,
+    "category": "Okyanus",
+    "text": "Sudaki parçacıklar ve tortular, denizin yeşilimsi, kırmızımsı veya kahverengi görünmesine yol açabilir.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/oceanblue.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 46,
+    "category": "Okyanus",
+    "text": "Okyanusun derinliklerine indikçe ışığın renkleri aynı ölçüde korunmaz; kırmızı ışık daha erken soğurulur.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/oceanblue.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 47,
+    "category": "Dünya",
+    "text": "Dünya’nın en uzun dağ sırası yaklaşık 65.000 kilometrelik okyanus ortası sırt sistemidir.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/midoceanridge.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 48,
+    "category": "Dünya",
+    "text": "Okyanus ortası sırt sisteminin yaklaşık yüzde 90’ı suyun altında bulunur.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/midoceanridge.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 49,
+    "category": "Dünya",
+    "text": "Okyanus ortası sırtlarda levhalar uzaklaşırken yükselen magma, yeni deniz tabanı oluşturur.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/midoceanridge.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 50,
+    "category": "Okyanus",
+    "text": "Okyanusta yaklaşık 200–1.000 metre arasındaki “alacakaranlık” kuşağında, fotosenteze yetecek güneş ışığı yoktur.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/light_travel.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 51,
+    "category": "Okyanus",
+    "text": "Okyanusta yaklaşık 1.000 metrenin altında güneş ışığı bulunmaz; bu bölgeye afotik kuşak denir.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/light_travel.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 52,
+    "category": "Okyanus",
+    "text": "Ses, suda yaklaşık saniyede 1.500 metre, havada ise yaklaşık 340 metre hızla ilerler.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/sound.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 53,
+    "category": "Okyanus",
+    "text": "Okyanustaki sıcaklık ve basınç değişimleri, ses dalgalarının yönünü büker.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/sound.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 54,
+    "category": "Okyanus",
+    "text": "Okyanustaki doğal “ses kanalı”, uygun koşullarda balina seslerini binlerce kilometre uzağa taşıyabilir.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/sound.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 55,
+    "category": "Dünya",
+    "text": "Deniz dağlarının çoğu, sönmüş yanardağların kalıntılarıdır.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanexplorer.noaa.gov/ocean-fact/seamounts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 56,
+    "category": "Dünya",
+    "text": "Tepesi geniş ve düz olan bazı deniz dağlarına “guyot” adı verilir.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanexplorer.noaa.gov/ocean-fact/seamounts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 57,
+    "category": "Dünya",
+    "text": "Bir yükseltinin deniz dağı sayılması için çevresindeki tabandan en az yaklaşık 1.000 metre yükselmesi gerekir.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanexplorer.noaa.gov/ocean-fact/seamounts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 58,
+    "category": "Dünya",
+    "text": "Deniz dağları, çevrelerindeki düz tabana göre daha zengin canlı topluluklarına ev sahipliği yapabilir.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanexplorer.noaa.gov/ocean-fact/seamounts/",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 59,
+    "category": "Okyanus",
+    "text": "Okyanus tuzunun başlıca kaynaklarından biri, yağmur ve akarsuların karadaki kayalardan taşıdığı çözünmüş maddelerdir.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/whysalty.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 60,
+    "category": "Okyanus",
+    "text": "Deniz tabanındaki hidrotermal bacalar da okyanusa çözünmüş mineraller taşır.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/whysalty.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 61,
+    "category": "Okyanus",
+    "text": "Sodyum ve klorür, okyanusta çözünmüş iyonların yaklaşık yüzde 85’ini oluşturur.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/whysalty.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 62,
+    "category": "Okyanus",
+    "text": "Deniz suyunun ortalama tuzluluğu binde 35’tir; kütlesinin yaklaşık yüzde 3,5’i çözünmüş tuzlardan oluşur.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://oceanservice.noaa.gov/facts/whysalty.html",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 63,
+    "category": "Canlılar",
+    "text": "Ahtapotların üç kalbi vardır: ikisi solungaçlara, biri vücudun geri kalanına kan pompalar.",
+    "sourceName": "NOAA",
+    "sourceUrl": "https://www.noaa.gov/stories/love-is-in-air-and-sea-5-facts-about-affections-of-marine-creatures",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 64,
+    "category": "Canlılar",
+    "text": "Pandaların bambuyu kavramasına yardım eden “yalancı başparmak”, aslında büyümüş bir bilek kemiğidir.",
+    "sourceName": "Smithsonian National Zoo",
+    "sourceUrl": "https://nationalzoo.si.edu/animals/giant-panda",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 65,
+    "category": "Canlılar",
+    "text": "Pandaların sindirim sistemi otçullardan çok etçillerinkine benzer; bambuyu verimsiz sindirirler.",
+    "sourceName": "Smithsonian National Zoo",
+    "sourceUrl": "https://nationalzoo.si.edu/animals/giant-panda",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 66,
+    "category": "Canlılar",
+    "text": "Bir dev panda, yiyecek aramaya ve yemeye günde 10–16 saat ayırabilir.",
+    "sourceName": "Smithsonian National Zoo",
+    "sourceUrl": "https://nationalzoo.si.edu/animals/giant-panda",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 67,
+    "category": "Canlılar",
+    "text": "Pandalar, birbirlerine varlıklarını bildirmek için ağaçlara ve kayalara koku işaretleri bırakır.",
+    "sourceName": "Smithsonian National Zoo",
+    "sourceUrl": "https://nationalzoo.si.edu/animals/giant-panda",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 68,
+    "category": "Canlılar",
+    "text": "Pandaların bambuyu ezmeye uygun büyük azı dişleri ve güçlü çene kasları vardır.",
+    "sourceName": "Smithsonian National Zoo",
+    "sourceUrl": "https://nationalzoo.si.edu/animals/giant-panda",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 69,
+    "category": "Canlılar",
+    "text": "Pandaların siyah-beyaz deseninin neden evrimleştiğine ilişkin tek ve kesin bir açıklama yoktur.",
+    "sourceName": "Smithsonian National Zoo",
+    "sourceUrl": "https://nationalzoo.si.edu/animals/giant-panda",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 70,
+    "category": "Canlılar",
+    "text": "Dev Pasifik ahtapotu, pirinç tanesi büyüklüğünde bir yumurtadan çıkar.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/giant-pacific-octopus",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 71,
+    "category": "Canlılar",
+    "text": "Dev Pasifik ahtapotu, kavanoz açmayı ve bulmaca çözmeyi öğrenebilir.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/giant-pacific-octopus",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 72,
+    "category": "Canlılar",
+    "text": "Ahtapotların kollarındaki vantuzlar, kavramanın yanında tat ve koku algılamaya da yardım eder.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/giant-pacific-octopus",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 73,
+    "category": "Canlılar",
+    "text": "Ahtapotlar, suyu sifonlarından dışarı püskürterek jet itişiyle hareket edebilir.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/giant-pacific-octopus",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 74,
+    "category": "Canlılar",
+    "text": "Ahtapot derisindeki kromatofor denen pigment hücreleri, renk değiştirmede görev alır.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/giant-pacific-octopus",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 75,
+    "category": "Canlılar",
+    "text": "Dev Pasifik ahtapotunun sert, papağan gagasına benzeyen bir gagası vardır.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/giant-pacific-octopus",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 76,
+    "category": "Canlılar",
+    "text": "Bilim insanları, ahtapotların yuvalarının dışına attığı kabuk yığınlarını inceleyerek ne yediklerini öğrenebilir.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/giant-pacific-octopus",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 77,
+    "category": "Canlılar",
+    "text": "Dişi dev Pasifik ahtapotu, yumurtalarına oksijenli su akıtarak onları aylarca koruyabilir.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/giant-pacific-octopus",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 78,
+    "category": "Canlılar",
+    "text": "Deniz samurları, çoğu deniz memelisinin aksine kalın bir yağ tabakası yerine çok sık kürkleriyle ısınır.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/sea-otter",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 79,
+    "category": "Canlılar",
+    "text": "Deniz samurunun kürkü, en sık bölgelerinde bir inç karede bir milyondan fazla kıl barındırabilir.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/sea-otter",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 80,
+    "category": "Canlılar",
+    "text": "Deniz samurları, ön bacaklarının altındaki gevşek deri ceplerinde topladıkları yiyecekleri saklayabilir.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/sea-otter",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 81,
+    "category": "Canlılar",
+    "text": "Deniz samuru, yüksek enerji ihtiyacı nedeniyle bir günde vücut ağırlığının yaklaşık dörtte biri kadar yiyebilir.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/sea-otter",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 82,
+    "category": "Canlılar",
+    "text": "Deniz samurları havayla solunum yapar; yiyecek ararken birkaç dakika su altında kalabilirler.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/sea-otter",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 83,
+    "category": "Canlılar",
+    "text": "Deniz samurları, kıyı ekosistemlerini güçlü biçimde etkileyen “kilit taşı” türlerdendir.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/sea-otter",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 84,
+    "category": "Canlılar",
+    "text": "Deniz samurları, sırtüstü yüzerek dinlenebilir; kıyıdan bakıldığında yüzen yosun kümelerini andırabilirler.",
+    "sourceName": "Monterey Bay Aquarium",
+    "sourceUrl": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/sea-otter",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 85,
+    "category": "Fizik",
+    "text": "Saf suyun yoğunluğu, donma noktasında değil yaklaşık 4 °C’de en yüksektir.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/water-density",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 86,
+    "category": "Fizik",
+    "text": "Buz, sıvı sudan daha az yoğundur; bu nedenle normal buz küpleri suyun üzerinde yüzer.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/water-density",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 87,
+    "category": "Fizik",
+    "text": "Buzda su molekülleri, sıvıdakinden daha aralıklı bir kristal örgü oluşturur.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/water-density",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 88,
+    "category": "Fizik",
+    "text": "Bir buzdağının hacminin yaklaşık onda dokuzu suyun altında kalır.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/water-density",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 89,
+    "category": "Fizik",
+    "text": "Çözünmüş tuzlar suyun yoğunluğunu artırır; deniz suyu saf sudan daha yoğundur.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/water-density",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 90,
+    "category": "Fizik",
+    "text": "Su moleküllerinin birbirini çekmesine kohezyon, başka maddelere tutunmasına adezyon denir.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/adhesion-and-cohesion-water",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 91,
+    "category": "Fizik",
+    "text": "Yerçekiminin damlayı belirgin biçimde yassılaştırmadığı koşullarda su damlaları, yüzey enerjisini azaltan küresel biçime yönelir.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/adhesion-and-cohesion-water",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 92,
+    "category": "Fizik",
+    "text": "Su molekülünün oksijen tarafı kısmen negatif, hidrojen tarafı kısmen pozitif yüklüdür.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/adhesion-and-cohesion-water",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 93,
+    "category": "Fizik",
+    "text": "Bitkilerde suyun dar kanallarda yükselmesine adezyon ve kohezyon birlikte katkıda bulunur.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/adhesion-and-cohesion-water",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 94,
+    "category": "Fizik",
+    "text": "Bir bardağın kenarında su yüzeyinin kıvrılmasına “menisküs” denir; su ile cam arasındaki etkileşim bu biçimi etkiler.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/adhesion-and-cohesion-water",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 95,
+    "category": "Fizik",
+    "text": "Çelik bir ataş, dikkatle bırakıldığında yüzey gerilimi sayesinde suyun üzerinde durabilir.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/surface-tension-and-water",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 96,
+    "category": "Fizik",
+    "text": "Su üstünde yürüyen bazı böcekler, suyu iten uzun bacakları ve yüzey geriliminden yararlanır.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/surface-tension-and-water",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 97,
+    "category": "Fizik",
+    "text": "Sabun ve deterjanlar, suyun yüzey gerilimini azaltarak kirli yüzeylerin ıslanmasını kolaylaştırır.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/surface-tension-and-water",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 98,
+    "category": "Fizik",
+    "text": "Su yüzeyindeki moleküllerin üstünde komşu su molekülleri bulunmaz; içeri doğru çekim yüzeyin gerilmesine yol açar.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/surface-tension-and-water",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 99,
+    "category": "Fizik",
+    "text": "Bir sıvının yüzeyi, yüzey gerilimi nedeniyle gerilmeye ve kırılmaya karşı direnç gösterir.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/surface-tension-and-water",
+    "checked": "2026-11-04"
+  },
+  {
+    "id": 100,
+    "category": "Fizik",
+    "text": "Sabun köpüklerinin yuvarlaklaşmasında, yüzey geriliminin yüzey alanını küçültme eğilimi rol oynar.",
+    "sourceName": "USGS Water Science School",
+    "sourceUrl": "https://www.usgs.gov/water-science-school/science/surface-tension-and-water",
+    "checked": "2026-11-04"
+  }
+]

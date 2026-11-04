@@ -4,7 +4,9 @@
 import {STORAGE_KEY} from '../config/constants';
 import {DEFAULT_APP_IDS} from '../config/catalog';
 
+export type SaverMode = 'quotes' | 'facts' | 'art';
 export interface UserConfig {
+	saverMode: SaverMode;
 	schemaVersion?: number;
 	/** ordered app IDs for the Apps row */
 	appIds: string[];
@@ -15,6 +17,7 @@ export interface UserConfig {
 }
 
 export const DEFAULT_CONFIG: UserConfig = {
+	saverMode: 'quotes',
 	schemaVersion: 2,
 	appIds: DEFAULT_APP_IDS.slice(),
 	sourceIds: null,
@@ -28,6 +31,7 @@ export function loadConfig (): UserConfig {
 		const parsed = JSON.parse(raw) as Partial<UserConfig>;
 		const appIds = Array.isArray(parsed.appIds) ? parsed.appIds : DEFAULT_CONFIG.appIds;
 		const result: UserConfig = {
+			saverMode: parsed.saverMode === 'facts' || parsed.saverMode === 'art' ? parsed.saverMode : 'quotes',
 			schemaVersion: 2,
 			appIds: parsed.schemaVersion === 2 ? appIds : appIds.concat(['com.ottplayer.app', 'io.strem.tv', 'com.wbd.stream'].filter((id) => appIds.indexOf(id) === -1)),
 			sourceIds: Array.isArray(parsed.sourceIds) ? parsed.sourceIds : null,
