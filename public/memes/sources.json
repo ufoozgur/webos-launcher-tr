@@ -208,5 +208,37 @@
     ],
     "duration": 1.5,
     "sha256": "ba791bb8065943ac4bef9352a1e0cab2f31ede11d293afe33142e3935f91c84e"
+  },
+  {
+    "file": "screensaver.gif",
+    "source": "https://tenor.com/view/homer-simpson-bush-escape-im-out-gif-10058041",
+    "url": "https://media.tenor.com/v3qSTdMkmNAAAAAM/homer-simpson.gif",
+    "meaning": "Ben yokum: Homer çalılıklara kayboluyor",
+    "bytes": 100225,
+    "sha256": "3716914eb2eb09c64cdf461cf7bec26450389827f0144066f2e59ddec0cf0ae1"
+  },
+  {
+    "file": "screensaver.png",
+    "source": "https://tenor.com/view/homer-simpson-bush-escape-im-out-gif-10058041",
+    "url": "https://media.tenor.com/v3qSTdMkmNAAAAAe/homer-simpson.png",
+    "meaning": "Ben yokum: Homer çalılıklara kayboluyor",
+    "bytes": 49680,
+    "sha256": "e483e6bb1705c391b2e89b235e12c3e86cc01e7c914675701f5ae84d8b788b68"
+  },
+  {
+    "file": "rabbit-hole.gif",
+    "source": "https://tenor.com/view/hugs-rickroll-gif-24588121",
+    "url": "https://media.tenor.com/kGekz062mwgAAAAM/hugs-rickroll.gif",
+    "meaning": "Tavşan deliği: Rickroll",
+    "bytes": 91152,
+    "sha256": "35f7160f4b9868a1c2f79a63c069ed4a915dcaf029e9b02e27c600fdd25baaae"
+  },
+  {
+    "file": "rabbit-hole.png",
+    "source": "https://tenor.com/view/hugs-rickroll-gif-24588121",
+    "url": "https://media.tenor.com/kGekz062mwgAAAAe/hugs-rickroll.png",
+    "meaning": "Tavşan deliği: Rickroll",
+    "bytes": 20375,
+    "sha256": "28104773d6546118e1afd73b1148e08fe1db29f94f7368244595f47771e03030"
   }
 ]

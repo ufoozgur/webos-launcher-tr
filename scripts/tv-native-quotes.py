@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Rotate native Flutter saver translations between sessions; never patch its code."""
 import fcntl
+import hashlib
 import json
 import os
 import pathlib
@@ -18,9 +19,16 @@ KEYS = ['Press any button to back on the screen.', 'To turn the screen back on, 
 
 
 def call(uri, params):
-    result = subprocess.run(['luna-send', '-n', '1', '-w', '5000', 'luna://' + uri, json.dumps(params)], capture_output=True, text=True, timeout=7)
-    result.check_returncode()
-    data = json.loads(result.stdout)
+    for attempt in range(3):
+        try:
+            result = subprocess.run(['luna-send', '-n', '1', '-w', '5000', 'luna://' + uri, json.dumps(params)], capture_output=True, text=True, timeout=7)
+            result.check_returncode()
+            data = json.loads(result.stdout)
+            break
+        except (ValueError, subprocess.SubprocessError):
+            if attempt == 2:
+                raise
+            time.sleep(0.4)
     if data.get('returnValue') is False:
         if uri.endswith('/closeByAppId') and data.get('errorText') == 'native app is not running':
             return data
@@ -32,28 +40,35 @@ def mounted(target):
     return any(line.split()[1] == str(target) for line in pathlib.Path('/proc/mounts').read_text().splitlines())
 
 
-def choose_index(previous, count, randrange=random.randrange):
+def next_selection(saved, signature, count, shuffle=random.shuffle):
+    """Persist a shuffled deck so every film appears before a repeat."""
     if count < 1:
         raise ValueError('Replik listesi boş')
-    if count == 1:
-        return 0
-    if not 0 <= previous < count:
-        return randrange(count)
-    # Map a draw from N-1 entries around the previous entry, without retries.
-    index = randrange(count - 1)
-    return index + (index >= previous)
+    previous = saved.get('index', -1)
+    remaining = saved.get('remaining', [])
+    same_deck = saved.get('selection') == 'shuffle-bag' and saved.get('signature') == signature
+    valid = isinstance(remaining, list) and all(type(i) is int and 0 <= i < count for i in remaining) and len(set(remaining)) == len(remaining) and previous not in remaining
+    if not same_deck or not valid or not remaining:
+        remaining = list(range(count))
+        shuffle(remaining)
+        if count > 1 and remaining[0] == previous:
+            remaining[0], remaining[1] = remaining[1], remaining[0]
+    index = remaining.pop(0)
+    return {'index': index, 'remaining': remaining, 'selection': 'shuffle-bag', 'signature': signature, 'cycle': saved.get('cycle', 0) + (not same_deck or not valid or not saved.get('remaining'))}
 
 
-def prepare(advance=False):
+def prepare(advance=False, within_session=False):
     # Only call after leaving ScreenSaver: Flutter reads this dictionary at startup.
-    if call('com.webos.service.tvpower/power/getPowerState', {}).get('state') != 'Active':
+    power = call('com.webos.service.tvpower/power/getPowerState', {}).get('state')
+    if power != 'Active' and not (within_session and power in ('ScreenSaver', 'Screen Saver')):
         return
     quotes = json.loads((STATE / 'quotes.json').read_text())
+    signature = hashlib.sha256(json.dumps(quotes, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
     position = STATE / 'position.json'
     saved = json.loads(position.read_text()) if position.exists() else {}
-    index = saved.get('index', -1)
-    if advance or saved.get('selection') != 'random' or not 0 <= index < len(quotes):
-        index = choose_index(index, len(quotes))
+    if advance or saved.get('selection') != 'shuffle-bag' or saved.get('signature') != signature or not 0 <= saved.get('index', -1) < len(quotes):
+        saved = next_selection(saved, signature, len(quotes))
+    index = saved['index']
     quote = quotes[index]
     # Stock Flutter flattens LF; U+2028 survives. Its guide only shows two lines.
     text = '“' + quote['text'] + '” - ' + quote['character'] + ' (' + quote['actor'] + ')\u2028' + quote['film'] + ' (' + str(quote['year']) + ')'
@@ -66,9 +81,14 @@ def prepare(advance=False):
     if not mounted(target):
         subprocess.run(['mount', '--bind', str(STATE / 'tr.json'), str(target)], check=True)
     # Recheck before closing; never close an active saver.
-    if call('com.webos.service.tvpower/power/getPowerState', {}).get('state') == 'Active':
+    current = call('com.webos.service.tvpower/power/getPowerState', {}).get('state')
+    if current == 'Active' or (within_session and current in ('ScreenSaver', 'Screen Saver')):
         call('com.webos.applicationManager/closeByAppId', {'id': APP})
-    position.write_text(json.dumps({'index': index, 'selection': 'random'}) + '\n')
+        if within_session:
+            call('com.webos.applicationManager/launch', {'id': APP})
+    temp = position.with_suffix('.tmp')
+    temp.write_text(json.dumps(saved) + '\n')
+    temp.replace(position)
     print('Prepared quote %d/%d: %s' % (index + 1, len(quotes), quote['film']), flush=True)
 
 
@@ -82,7 +102,10 @@ def listen():
     except BlockingIOError:
         return
     (STATE / 'listener.pid').write_text(str(os.getpid()))
-    prepare()
+    try:
+        prepare()
+    except Exception as error:
+        print('Initial preparation deferred: ' + str(error), flush=True)
     while True:
         proc = subprocess.Popen(['luna-send', '-i', 'luna://com.webos.service.tvpower/power/getPowerState', '{"subscribe":true}'], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, universal_newlines=True)
         try:
@@ -107,7 +130,12 @@ def listen():
                 elif state == 'Active' and was_saver:
                     was_saver = False
                     time.sleep(0.8)
-                    prepare(advance=True)
+                    try:
+                        prepare(advance=True)
+                    except Exception as error:
+                        print('Quote preparation failed: ' + str(error), flush=True)
+        except Exception as error:
+            print('Power subscription reconnecting: ' + str(error), flush=True)
         finally:
             proc.terminate()
             proc.wait()
@@ -157,6 +185,8 @@ def main():
         print('Native quote rotation enabled')
     elif action == 'listen':
         listen()
+    elif action == 'refresh-test':
+        prepare(advance=True, within_session=True)
     elif action == 'disable':
         stop()
         if HOOK.exists():

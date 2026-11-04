@@ -6,7 +6,8 @@ import {Toast, type ToastMessage} from './components/Toast';
 import type {TileModel} from './components/Tile';
 import {listApps, type AppEntry} from './lib/apps';
 import {listInputs, MOCK_INPUTS, type InputSource} from './lib/inputs';
-import {launchApp, launchLgHome} from './lib/launch';
+import {launchApp, launchLgHome, startScreensaver} from './lib/launch';
+import {randomVideo} from './lib/randomVideo';
 import {isWebOS} from './lib/luna';
 import {hidePointerOnForeground} from './lib/pointer';
 import {loadConfig, saveConfig, toggleId, type UserConfig} from './lib/storage';
@@ -16,11 +17,13 @@ import {TIMING} from './config/constants';
 type Screen = 'home' | 'settings';
 
 const ROW = {apps: 'apps', sources: 'sources', misc: 'misc'} as const;
-const MISC = {lgHome: 'lg-home', settings: 'settings'} as const;
+const MISC = {lgHome: 'lg-home', settings: 'settings', saver: 'screensaver', random: 'random-video'} as const;
 const OPTION = {useHomebrew: 'use-homebrew'} as const;
 
 const MISC_TILES: TileModel[] = [
 	{key: MISC.lgHome, label: 'Panic Button', description: 'LG ana ekranına dön', imageUrl: 'memes/panic-static.svg', animatedImageUrl: 'memes/panic-button.gif'},
+	{key: MISC.saver, label: 'Ben Yokum', description: 'Ekran koruyucuyu başlat', imageUrl: 'memes/screensaver.png', animatedImageUrl: 'memes/screensaver.gif'},
+	{key: MISC.random, label: 'Tavşan Deliği', description: 'İnternetten rastgele YouTube videosu', imageUrl: 'memes/rabbit-hole.png', animatedImageUrl: 'memes/rabbit-hole.gif'},
 	{key: MISC.settings, label: 'Ayarlar', glyph: 'gear', animatedImageUrl: 'memes/settings.gif'}
 ];
 
@@ -31,6 +34,7 @@ export function App () {
 	const [inputs, setInputs] = useState<InputSource[]>([]);
 	const [toast, setToast] = useState<ToastMessage | null>(null);
 	const toastTimer = useRef(0);
+	const findingVideo = useRef(false);
 
 	const showToast = useCallback((text: string, kind: ToastMessage['kind'] = 'info') => {
 		window.clearTimeout(toastTimer.current);
@@ -102,6 +106,14 @@ export function App () {
 		if (rowId === ROW.misc) {
 			if (item.key === MISC.settings) setScreen('settings');
 			else if (item.key === MISC.lgHome) launchLgHome().catch(() => showToast('LG ana ekranı açılamadı', 'error'));
+			else if (item.key === MISC.saver) startScreensaver().catch(() => showToast('Ekran koruyucu açılamadı; başlatma iznini kontrol et', 'error'));
+			else if (item.key === MISC.random && !findingVideo.current) {
+				findingVideo.current = true;
+				showToast('Tavşan deliği kazılıyor…');
+				randomVideo().then(video => launchApp('youtube.leanback.v4', {contentTarget: 'v=' + video.id}))
+					.catch(() => showToast('Video bulunamadı veya YouTube açılamadı; tekrar dene', 'error'))
+					.finally(() => { findingVideo.current = false; });
+			}
 			return;
 		}
 		open(item.key, item.label);

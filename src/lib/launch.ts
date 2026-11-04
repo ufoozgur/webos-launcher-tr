@@ -11,6 +11,11 @@ export function launchLgHome (): Promise<void> {
 	return launchApp(SYSTEM_APP.lgHome);
 }
 
+/** Root-installed clock/quote screensaver, launched through the normal app API. */
+export function startScreensaver(): Promise<void> {
+	return launchApp('com.webos.app.screensaver');
+}
+
 /** Whether an app with this ID exists on the TV (permitted from a web app, unlike listing). */
 export function appExists (id: string): Promise<boolean> {
 	return lunaCall<{exist?: boolean}>(LUNA.appLoadStatus, {appId: id})

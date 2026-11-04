@@ -67,4 +67,3 @@ export function Tile ({model, focused, lifted, checked, dimmed, onHover, onActiv
 		</div>
 	);
 }
-

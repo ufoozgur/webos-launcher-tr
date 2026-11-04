@@ -38,3 +38,9 @@ The Panic Button animation is from [Tenor, Panic Button GIF](https://tenor.com/v
 ## Contextual meme GIFs (1.3.0)
 
 The additional GIFs are sourced from Tenor. Per-file source pages, direct media URLs, descriptions and SHA-256 checksums are recorded in [public/memes/sources.json](public/memes/sources.json). They remain the property of their respective rights holders, are not MIT-licensed, and do not imply endorsement. The project bundles small GIF variants and renders only the focused tile's animation.
+
+## Clock/quote screensaver typefaces
+
+The optional QML screensaver includes Orbitron, Cinzel, Bebas Neue, Playfair Display, Share Tech Mono and Comic Neue. Each is distributed under SIL Open Font License 1.1; its license is included next to the font in `screensaver/fonts/`. These font licenses are separate from the code's MIT license. Comic Neue is from [Google Fonts](https://github.com/google/fonts/tree/main/ofl/comicneue). Fonts are selected for a film's mood, not represented as the film's official licensed title lettering.
+
+The additional Homer and Rick Astley button GIFs and static previews are attributed in `public/memes/sources.json`.

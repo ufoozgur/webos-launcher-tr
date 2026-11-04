@@ -23,3 +23,12 @@ assert.equal(quotes.length,100);
 assert.equal(new Set(quotes.map(q=>q.film)).size,100);
 assert(quotes.every(q=>q.text && q.character && q.actor && Number.isInteger(q.year)));
 console.log('Türkçe saat/tarih ve 100 farklı film kaydı doğrulandı.');
+
+const deck={};vm.runInNewContext(fs.readFileSync(path.join(root,'screensaver/Quotes.js'),'utf8').replace(/^\.pragma library\s*/,''),deck);
+assert.equal(deck.quotes.length,100);
+assert(deck.quotes.every(q=>['scifi','fantasy','action','classic','mono','comic'].includes(q.fontStyle)));
+let state={},draws=[];for(let i=0;i<1000;i++){state=deck.nextSelection(state,100,Math.random);draws.push(state.index);if(i)assert.notEqual(draws[i],draws[i-1]);}
+for(let i=0;i<1000;i+=100)assert.equal(new Set(draws.slice(i,i+100)).size,100);
+const credits={character:'A',actor:'B',film:'C'};
+assert(deck.durationMs({...credits,text:'one '.repeat(30)})>deck.durationMs({...credits,text:'one'}));
+console.log('10 tam replik destesi, 100 film ve filme göre yazı tipi eşlemeleri doğrulandı.');
