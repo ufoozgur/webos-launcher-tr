@@ -7,5 +7,6 @@ const facts=JSON.parse(fs.readFileSync(path.join(base,'facts.tr.json'),'utf8'));
 const paintings=JSON.parse(fs.readFileSync(path.join(base,'paintings.json'),'utf8'));
 if(facts.length!==100||paintings.length<50)throw Error('100 bilgi ve en az 50 tablo gerekli');
 const hash=x=>createHash('sha256').update(JSON.stringify(x)).digest('hex');
-fs.writeFileSync(path.join(base,'Content.js'),'.pragma library\nvar facts='+JSON.stringify(facts)+';\nvar paintings='+JSON.stringify(paintings)+';\nvar factsSignature="'+hash(facts)+'";\nvar artSignature="'+hash(paintings)+'";\n');
+const selectionData=paintings.map(({titleTr,dateTr,...original})=>original);
+fs.writeFileSync(path.join(base,'Content.js'),'.pragma library\nvar facts='+JSON.stringify(facts)+';\nvar paintings='+JSON.stringify(paintings)+';\nvar factsSignature="'+hash(facts)+'";\nvar artSignature="'+hash(selectionData)+'";\n');
 console.log(`${facts.length} bilgi / ${paintings.length} tablo hazır`);

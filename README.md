@@ -7,9 +7,9 @@ LG webOS için sade ana ekran. [partridgeworks/webos-launcher](https://github.co
 - Tuşla ilgili meme GIF’leri yalnızca seçili tuşta oynar; arka planda durur.
 - **Panic Button:** LG ana ekranına döner.
 - **Ben Yokum:** kurulu ekran koruyucu uygulamasını açar. Özel koruyucu aşağıdaki root modülüyle kurulur.
-- **Tavşan Deliği:** her basışta internetten yeni YouTube arama sonuçları alır, rastgele bir videoyu YouTube’da doğrudan açar. Son 150 seçimden kaçınır.
+- **Tavşan Deliği:** her basışta internetten konu filtresiz bir kura çeker, videoyu YouTube’da doğrudan açar. Son 150 seçimden kaçınır.
 
-Tavşan Deliği çeşitli konular, sıralamalar ve arama sayfaları kullanır; YouTube’un bütün videolarından eşit olasılıkla seçim değildir. Anahtar gerektirmeyen bir Invidious API sunucusu kullanır; sunucu çalışmazsa hata gösterir, sabit video listesine dönmez. Sunucu adresi `src/lib/randomVideo.ts` içindedir. Arama sağlayıcısı bağlantının IP adresini ve arama konusunu görebilir; YouTube hesabı veya çerezleri gönderilmez.
+Tavşan Deliği, [Random Video](https://random-video.com/about/) servisinin yaklaşık 4,5 milyar YouTube kimliği içeren 2021 arşivinden internet üzerinden her basışta yeni kura çeker. Dil, konu, yıl ve izlenme kategorilerinin tümü açıktır; anahtar kelime araması ve kişiselleştirme kullanılmaz. Bu arşiv YouTube'un tamamı değildir ve yeni yüklemeleri içermez. Silinmiş/özel videolar YouTube oEmbed ile kontrol edilir; üç deneme sonunda uygun video yoksa hata gösterilir, konu aramasına veya sabit listeye dönülmez. oEmbed kontrolü TV'deki bölge, hesap veya yaş sınırlamalarını garanti etmez. Son 150 video tekrar seçilmez. Random Video ve YouTube bağlantının IP adresini görebilir; hesap tokenı ve çerez gönderilmez.
 
 ## Derleme ve kurulum
 
@@ -52,7 +52,7 @@ Bu mod, LG’nin analog saat görünümüne benzer bir QML ekran koruyucusudur. 
 - Deste durumu diske kaydedilir; yeni oturumlarda kaldığı yerden sürer.
 - Üç satır: replik; karakter (oyuncu); film (yıl). Yalnızca replik filme uygun altı yazı tipi ailesinden biriyle yazılır; diğer bilgiler sade kalır.
 - Okuma süresi metnin uzunluğuna göre 13–35 saniyedir. Gösterim konumu değişir.
-- Bir kumanda tuşu veya tıklama koruyucudan çıkarır. Çember ve geçişler görünürken animasyon çalışır; saat yalnızca gerektiğinde yeniden çizilir.
+- Açılışın ilk 1,2 saniyesinde taşınan tuş/tıklama olayları yok sayılır; basılı tuş tekrarları çıkarmaz. Daha sonra yeni bir kumanda basışı veya yeni tıklama koruyucudan çıkarır. Çember ve geçişler görünürken animasyon çalışır; saat yalnızca gerektiğinde yeniden çizilir.
 
 ### Ekran koruyucu seçimi (1.5.0)
 
@@ -60,7 +60,7 @@ Bu mod, LG’nin analog saat görünümüne benzer bir QML ekran koruyucusudur. 
 
 - **Film replikleri:** 100 farklı film, İngilizce replik ve üç satırlı bilgiler.
 - **İlginç bilgiler:** NASA, NOAA, USGS, Smithsonian ve Monterey Bay Aquarium kaynaklarından özgün Türkçe anlatımla 100 bilgi. Kaynak kurum ekranda, bağlantılar `screensaver/facts.tr.json` içindedir. Metin uzunluğuna göre 18–45 saniye gösterilir; saatle yumuşak geçiş yapar.
-- **Ünlü tablolar:** The Met'in öne çıkan koleksiyonundan **50 sanatçıya ait 60 eser**. Görüntü kırpılmadan ekrana sığar; dikey eserlerin yanında siyah alan kalabilir. Eser adı, sanatçı, yıl ve teknik yarı saydam bir panelde gösterilir. Panel her eserde köşe değiştirir. Her tablo 45 saniye kalır; 1,8 saniyelik yumuşak solmalarla değişir.
+- **Ünlü tablolar:** The Met'in öne çıkan koleksiyonundan **50 sanatçıya ait 60 eser**. Görüntü kırpılmadan ekrana sığar; dikey eserlerin yanında siyah alan kalabilir. Türkçe eser adı, sanatçı, Türkçe tarih ve teknik yarı saydam bir panelde gösterilir. Yerleşik adların yanında diğer başlıkların Türkçe çevirileri kullanılır; müzenin özgün başlığı ve tarihi veri dosyasında korunur. Panel öncelikle resmin dışındaki yan veya üst/alt boşluklara yerleşir. Yeterli boşluk yoksa tablo kırpılmadan biraz küçültülür ve altta ayrı bilgi alanı açılır; kutu resmin üzerine gelmez. Uygun boşluklar arasında konum değiştirir. Her tablo 45 saniye kalır; 1,8 saniyelik yumuşak solmalarla değişir.
 
 Her modun ayrı karıştırılmış destesi vardır; tüm liste bitmeden tekrar etmez, oturumlar arasında durum saklanır. Seçim hem Ben Yokum tuşunda hem TV'nin otomatik çağrısında geçerlidir. Seçimi kaydetmek için görünmeyen kısa bir QML çağrısı kullanılır; ek yetki veya sürekli arka plan servisi eklenmez.
 

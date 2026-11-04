@@ -25,6 +25,12 @@ WebOSWindow {
     property var fact: Content.facts[0]
     property var artwork: Content.paintings[0]
     property int corner: 0
+    property real naturalScale: Math.min(width/artwork.width,height/artwork.height)
+    property real sideGap: Math.max(0,(width-artwork.width*naturalScale)/2)
+    property real topGap: Math.max(0,(height-artwork.height*naturalScale)/2)
+    property bool sidePlaque: sideGap>=360
+    property bool bandPlaque: !sidePlaque && topGap>=plaque.height+32
+    property bool reserveCaption: !sidePlaque && !bandPlaque
     Settings {
         id: otherHistory
         fileName: "/var/lib/webos-launcher-tr/screensaver/"+root.mode+"-deck.ini"
@@ -48,6 +54,8 @@ WebOSWindow {
     property var current: Library.quotes[0]
     property int dwell: 16000
     property bool initialized: false
+    property bool exitArmed: false
+    Timer { id: armExit; interval: 1200; onTriggered: root.exitArmed=true }
     property date now: new Date()
     property real offsetX: 0
     property real offsetY: 0
@@ -104,13 +112,19 @@ WebOSWindow {
         mode=preferences.mode;
         if(mode!=="quotes"&&mode!=="facts"&&mode!=="art")mode="quotes";
         initialized=true;
-        if(configureOnly)configExit.start();else restartCycle();
+        if(configureOnly)configExit.start();else { armExit.start();restartCycle(); }
     }
 
     Item {
         anchors.fill: parent; focus: true
-        Keys.onPressed: { event.accepted=true; Qt.quit(); }
-        MouseArea { anchors.fill: parent; onClicked: Qt.quit() }
+        Keys.onPressed: { event.accepted=true; if(root.exitArmed && !event.isAutoRepeat)Qt.quit(); }
+        MouseArea {
+            anchors.fill: parent
+            property bool freshPress: false
+            onPressed: freshPress=root.exitArmed
+            onClicked: { if(freshPress && root.exitArmed)Qt.quit();freshPress=false; }
+            onCanceled: freshPress=false
+        }
     }
     Item {
         id: clockLayer
@@ -191,7 +205,8 @@ WebOSWindow {
         id: artLayer; anchors.fill: parent
         visible: root.mode==="art"; opacity: 0
         Image {
-            id: painting; anchors.fill: parent
+            id: painting; width: parent.width
+            height: parent.height-(root.reserveCaption?plaque.height+48:0)
             source: root.mode==="art" && root.initialized?"../"+root.artwork.image:""
             fillMode: Image.PreserveAspectFit
             sourceSize.width: 1920; sourceSize.height: 1080
@@ -203,15 +218,15 @@ WebOSWindow {
         }
         Rectangle {
             id: plaque
-            width: Math.min(760,Math.max(400,painting.paintedWidth-80))
+            width: root.sidePlaque?Math.min(520,root.sideGap-48):Math.min(1000,root.width-160)
             height: artText.height+44; radius: 10; color: "#b8000000"
-            x: (root.width-painting.paintedWidth)/2+(root.corner%2===0?35:painting.paintedWidth-width-35)
-            y: (root.height-painting.paintedHeight)/2+(root.corner<2?35:painting.paintedHeight-height-35)
+            x: root.sidePlaque?(root.corner%2===0?24:root.width-width-24):(root.width-width)/2
+            y: root.sidePlaque?(root.height-height)/2:root.bandPlaque?(root.corner<2?(root.topGap-height)/2:root.height-root.topGap+(root.topGap-height)/2):root.height-height-20
             Column {
                 id: artText; x: 24;y: 22;width: parent.width-48;spacing: 10
-                Text { width: parent.width;text: root.artwork.title;color: "#eeeeee";font.pixelSize: 29;wrapMode: Text.WordWrap;textFormat: Text.PlainText }
+                Text { width: parent.width;text: root.artwork.titleTr || root.artwork.title;color: "#eeeeee";font.pixelSize: 29;wrapMode: Text.WordWrap;textFormat: Text.PlainText }
                 Text { width: parent.width;text: root.artwork.artist;color: "#dddddd";font.pixelSize: 24;wrapMode: Text.WordWrap;textFormat: Text.PlainText }
-                Text { width: parent.width;text: root.artwork.year+" • "+root.artwork.medium;color: "#cccccc";font.pixelSize: 22;wrapMode: Text.WordWrap;textFormat: Text.PlainText }
+                Text { width: parent.width;text: (root.artwork.dateTr || root.artwork.year)+" • "+root.artwork.medium;color: "#cccccc";font.pixelSize: 22;wrapMode: Text.WordWrap;textFormat: Text.PlainText }
             }
         }
     }

@@ -23,7 +23,7 @@ const OPTION = {useHomebrew: 'use-homebrew'} as const;
 const MISC_TILES: TileModel[] = [
 	{key: MISC.lgHome, label: 'Panic Button', description: 'LG ana ekranına dön', imageUrl: 'memes/panic-static.svg', animatedImageUrl: 'memes/panic-button.gif'},
 	{key: MISC.saver, label: 'Ben Yokum', description: 'Ekran koruyucuyu başlat', imageUrl: 'memes/screensaver.png', animatedImageUrl: 'memes/screensaver.gif'},
-	{key: MISC.random, label: 'Tavşan Deliği', description: 'İnternetten rastgele YouTube videosu', imageUrl: 'memes/rabbit-hole.png', animatedImageUrl: 'memes/rabbit-hole.gif'},
+	{key: MISC.random, label: 'Tavşan Deliği', description: '4,5 milyarlık arşivden konu filtresiz kura', imageUrl: 'memes/rabbit-hole.png', animatedImageUrl: 'memes/rabbit-hole.gif'},
 	{key: MISC.settings, label: 'Ayarlar', glyph: 'gear', animatedImageUrl: 'memes/settings.gif'}
 ];
 
